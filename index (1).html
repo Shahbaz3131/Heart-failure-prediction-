@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Failure Prediction</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f0f2f5;
+      padding: 40px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Heart Failure Prediction</h2>
+    <form method="post" action="/predict">
+      <label>Age:</label><input type="number" name="age" required>
+      <label>Anaemia (0 or 1):</label><input type="number" name="anaemia" required>
+      <label>Creatinine Phosphokinase:</label><input type="number" name="creatinine_phosphokinase" required>
+      <label>Diabetes (0 or 1):</label><input type="number" name="diabetes" required>
+      <label>Ejection Fraction:</label><input type="number" name="ejection_fraction" required>
+      <label>High Blood Pressure (0 or 1):</label><input type="number" name="high_blood_pressure" required>
+      <label>Platelets:</label><input type="number" name="platelets" required>
+      <label>Serum Creatinine:</label><input type="number" name="serum_creatinine" required>
+      <label>Serum Sodium:</label><input type="number" name="serum_sodium" required>
+      <label>Sex (0=female, 1=male):</label><input type="number" name="sex" required>
+      <label>Smoking (0 or 1):</label><input type="number" name="smoking" required>
+      <label>Time:</label><input type="number" name="time" required>
+      <button type="submit">Predict</button>
+    </form>
+    {% if prediction_text %}
+      <h3>{{ prediction_text }}</h3>
+    {% endif %}
+  </div>
+</body>
+</html>
